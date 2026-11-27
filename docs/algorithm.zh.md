@@ -1,6 +1,8 @@
 # 字幕对齐算法研究
 
-英文标题：Subtitle Alignment Research
+Subtitle Alignment Research
+
+[中文](algorithm.zh.md) · [English](algorithm.en.md) · [日本語](algorithm.ja.md)
 
 这是一份独立的文稿优先（manuscript-first）字幕对齐说明，并附可独立运行的实现。它处理的问题是：已有完整文稿，以及一串带时间戳的识别词，如何把文稿对齐到时间轴上，再切成字幕条。
 

@@ -1,6 +1,8 @@
 # Subtitle Alignment Research
 
-Chinese title: 字幕对齐算法研究
+字幕对齐算法研究
+
+[中文](algorithm.zh.md) · [English](algorithm.en.md) · [日本語](algorithm.ja.md)
 
 This is an independent, manuscript-first description of caption alignment, with a runnable reference implementation. The problem is: given a complete manuscript and a sequence of recognized words with timestamps, align the manuscript to a timeline and split it into cues.
 
