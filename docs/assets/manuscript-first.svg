@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 420" width="960" height="420" role="img" aria-labelledby="title1 desc1">
+  <title id="title1">Manuscript-first alignment</title>
+  <desc id="desc1">The manuscript stays as subtitle text. A wrong ASR word is skipped and does not replace the script.</desc>
+  <style>
+    .bg { fill: #f6f4ef; }
+    .card { fill: #fff; stroke: #d9d4c8; stroke-width: 1; }
+    .kicker { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #7a7266; letter-spacing: 0.08em; }
+    .title { font: 700 22px ui-sans-serif, system-ui, sans-serif; fill: #1f1b16; }
+    .label { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #6b6458; }
+    .token { font: 700 22px "Songti SC", "Songti TC", "Noto Serif SC", serif; fill: #1f1b16; }
+    .wrong { font: 700 22px "Songti SC", "Songti TC", "Noto Serif SC", serif; fill: #b42318; }
+    .note { font: 500 14px ui-sans-serif, system-ui, sans-serif; fill: #4a453c; }
+    .ok { fill: #0f7b4a; }
+    .chip { fill: #ecf8f1; stroke: #8dcbab; }
+    .skip { fill: #fdecea; stroke: #f0b0aa; }
+    .result { font: 700 24px "Songti SC", "Songti TC", "Noto Serif SC", serif; fill: #1f1b16; }
+    .line { stroke-width: 2.5; fill: none; stroke-linecap: round; }
+    .draw { stroke-dasharray: 140; stroke-dashoffset: 140; animation: draw 1.1s ease forwards; }
+    .d2 { animation-delay: 0.7s; }
+    .fade-in { opacity: 0; animation: fade 0.7s ease forwards; }
+    .t1 { animation-delay: 0.2s; }
+    .t2 { animation-delay: 0.9s; }
+    .t3 { animation-delay: 1.6s; }
+    .pulse { animation: pulse 1.6s ease 1.8s infinite; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    @keyframes fade { to { opacity: 1; } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+  </style>
+  <rect class="bg" width="960" height="420" rx="20"/>
+  <text class="kicker" x="48" y="42">SUBTITLE ALIGNMENT RESEARCH</text>
+  <text class="title" x="48" y="74">文稿优先：识别词只借时间，不改字</text>
+
+  <text class="label" x="48" y="120">文稿 Manuscript</text>
+  <g>
+    <rect x="48" y="134" width="120" height="56" rx="10" fill="#fff" stroke="#1f1b16"/>
+    <text class="token" x="108" y="170" text-anchor="middle">今天</text>
+    <rect x="188" y="134" width="120" height="56" rx="10" fill="#fff7e6" stroke="#c9892d"/>
+    <text class="token" x="248" y="170" text-anchor="middle">天气</text>
+    <rect x="328" y="134" width="120" height="56" rx="10" fill="#fff" stroke="#1f1b16"/>
+    <text class="token" x="388" y="170" text-anchor="middle">很好</text>
+  </g>
+
+  <path class="line draw" d="M108 198 L108 250" stroke="#0f7b4a"/>
+  <path class="line draw d2" d="M388 198 L388 250" stroke="#0f7b4a"/>
+  <path class="line draw" d="M248 250 L248 198" stroke="#b42318" stroke-dasharray="6 6" opacity="0.7">
+    <animate attributeName="opacity" values="0;0.85;0.2" dur="2.4s" repeatCount="indefinite"/>
+  </path>
+
+  <text class="label" x="48" y="276">识别 ASR</text>
+  <g>
+    <rect class="chip fade-in t1" x="48" y="290" width="120" height="56" rx="10"/>
+    <text class="token fade-in t1" x="108" y="326" text-anchor="middle">今天</text>
+    <rect class="skip fade-in t2" x="188" y="290" width="120" height="56" rx="10"/>
+    <text class="wrong fade-in t2" x="248" y="326" text-anchor="middle">气候</text>
+    <line class="fade-in t2" x1="208" y1="318" x2="288" y2="318" stroke="#b42318" stroke-width="3"/>
+    <rect class="chip fade-in t3" x="328" y="290" width="120" height="56" rx="10"/>
+    <text class="token fade-in t3" x="388" y="326" text-anchor="middle">很好</text>
+  </g>
+
+  <g class="fade-in t3">
+    <rect x="520" y="134" width="392" height="212" rx="16" class="card"/>
+    <text class="label" x="548" y="168">字幕结果 Cue text</text>
+    <text class="result pulse" x="548" y="214">今天天气很好</text>
+    <text class="note" x="548" y="256">「气候」被跳过，文稿里的「天气」保留。</text>
+    <text class="note ok" x="548" y="286">The wrong ASR word never enters the cue.</text>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 400" width="960" height="400" role="img" aria-labelledby="title3 desc3">
+  <title id="title3">Cue splitting at a pause</title>
+  <desc id="desc3">A long manuscript line splits into shorter cues, preferring a pause between two ASR anchors.</desc>
+  <style>
+    .bg { fill: #f6f4ef; }
+    .kicker { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #7a7266; letter-spacing: 0.08em; }
+    .title { font: 700 22px ui-sans-serif, system-ui, sans-serif; fill: #1f1b16; }
+    .label { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #6b6458; }
+    .token { font: 700 22px "Songti SC", "Songti TC", "Noto Serif SC", serif; fill: #1f1b16; }
+    .meta { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #4a453c; }
+    .note { font: 500 14px ui-sans-serif, system-ui, sans-serif; fill: #4a453c; }
+    .bar { fill: #1f1b16; }
+    .cue { fill: #fff; stroke: #d9d4c8; stroke-width: 1; }
+    .pause { stroke: #c9892d; stroke-width: 3; stroke-dasharray: 6 6; }
+    .split { opacity: 0; animation: split 1.2s ease 1.1s forwards; }
+    .before { animation: lift 1.2s ease 1.1s forwards; }
+    .fade { opacity: 0; animation: fade 0.7s ease 1.8s forwards; }
+    @keyframes lift { to { transform: translateY(-18px); opacity: 0; } }
+    @keyframes split { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fade { to { opacity: 1; } }
+  </style>
+  <rect class="bg" width="960" height="400" rx="20"/>
+  <text class="kicker" x="48" y="42">CUE SPLIT</text>
+  <text class="title" x="48" y="74">切条：优先在两个锚点之间的停顿切开</text>
+
+  <text class="label" x="48" y="118">整句 Before</text>
+  <g class="before">
+    <rect class="bar" x="48" y="138" width="864" height="64" rx="12"/>
+    <text class="token" x="72" y="178" fill="#f6f4ef">今天天气很好。你好，世界！</text>
+  </g>
+
+  <g class="split">
+    <text class="label" x="48" y="230">字幕条 After</text>
+    <rect class="cue" x="48" y="246" width="400" height="86" rx="14"/>
+    <text class="token" x="72" y="286">今天天气很好。</text>
+    <text class="meta" x="72" y="314">0.00s → 1.20s</text>
+    <line class="pause" x1="468" y1="250" x2="468" y2="324"/>
+    <rect class="cue" x="492" y="246" width="420" height="86" rx="14"/>
+    <text class="token" x="516" y="286">你好，世界！</text>
+    <text class="meta" x="516" y="314">1.50s → 2.50s</text>
+  </g>
+  <text class="note fade" x="48" y="366">过短的条目可以合并，但不能超过字数上限；空隙可闭合，重叠只记录、不改时间。</text>
+</svg>

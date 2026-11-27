@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Subtitle Alignment Research — demo animations</title>
+  <style>
+    body { margin: 0; background: #ece7dc; color: #1f1b16; font: 16px/1.5 ui-sans-serif, system-ui, sans-serif; }
+    main { max-width: 1000px; margin: 0 auto; padding: 32px 20px 64px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    p { color: #4a453c; }
+    figure { margin: 28px 0; }
+    object, img { width: 100%; height: auto; border-radius: 20px; box-shadow: 0 8px 24px rgba(31,27,22,0.08); background: #f6f4ef; }
+    figcaption { margin-top: 8px; color: #6b6458; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>字幕对齐算法研究 / Subtitle Alignment Research</h1>
+    <p>这三张是仓库里的演示动画，用浏览器打开本页即可循环播放。它们说明的是本仓库自己的文稿优先对齐思路，不是任何商业编辑器的界面截图。</p>
+    <figure>
+      <object data="manuscript-first.svg" type="image/svg+xml">manuscript-first</object>
+      <figcaption>文稿优先：错误的识别词会被跳过，字幕仍用文稿原文。</figcaption>
+    </figure>
+    <figure>
+      <object data="time-fill.svg" type="image/svg+xml">time-fill</object>
+      <figcaption>时间回填：命中片段使用识别时间，中间未命中的文稿按字插值。</figcaption>
+    </figure>
+    <figure>
+      <object data="cue-split.svg" type="image/svg+xml">cue-split</object>
+      <figcaption>切条：优先在两个锚点之间的停顿处切开。</figcaption>
+    </figure>
+  </main>
+</body>
+</html>

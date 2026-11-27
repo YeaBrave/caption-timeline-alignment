@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" width="960" height="360" role="img" aria-labelledby="title2 desc2">
+  <title id="title2">Time fill between anchors</title>
+  <desc id="desc2">Matched words keep ASR start and end. The unmatched span between two anchors is interpolated.</desc>
+  <style>
+    .bg { fill: #f6f4ef; }
+    .kicker { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #7a7266; letter-spacing: 0.08em; }
+    .title { font: 700 22px ui-sans-serif, system-ui, sans-serif; fill: #1f1b16; }
+    .label { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #6b6458; }
+    .token { font: 700 20px "Songti SC", "Songti TC", "Noto Serif SC", serif; fill: #1f1b16; }
+    .time { font: 600 13px ui-monospace, SFMono-Regular, Menlo, monospace; fill: #3f3a32; }
+    .est { font: 600 13px ui-sans-serif, system-ui, sans-serif; fill: #8a5a12; }
+    .note { font: 500 14px ui-sans-serif, system-ui, sans-serif; fill: #4a453c; }
+    .rail { fill: #e7e1d6; }
+    .anchor { fill: #0f7b4a; }
+    .gap { fill: #e7b64d; }
+    .grow { transform-box: fill-box; transform-origin: left center; animation: grow 1.6s ease forwards; }
+    .g2 { animation-delay: 0.7s; }
+    .g3 { animation-delay: 1.4s; }
+    .fade { opacity: 0; animation: fade 0.6s ease forwards; }
+    .f2 { animation-delay: 0.7s; }
+    .f3 { animation-delay: 1.4s; }
+    @keyframes grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes fade { to { opacity: 1; } }
+  </style>
+  <rect class="bg" width="960" height="360" rx="20"/>
+  <text class="kicker" x="48" y="42">TIME ASSIGNMENT</text>
+  <text class="title" x="48" y="74">时间回填：命中用识别时间，中间按字插值</text>
+
+  <rect class="rail" x="48" y="168" width="864" height="18" rx="9"/>
+  <rect class="anchor grow" x="48" y="160" width="240" height="34" rx="10"/>
+  <rect class="gap grow g2" x="288" y="160" width="280" height="34" rx="10"/>
+  <rect class="anchor grow g3" x="568" y="160" width="240" height="34" rx="10"/>
+
+  <g class="fade">
+    <text class="token" x="168" y="140" text-anchor="middle">你好</text>
+    <text class="time" x="168" y="226" text-anchor="middle">0.50s – 1.00s · ASR</text>
+  </g>
+  <g class="fade f2">
+    <text class="token" x="428" y="140" text-anchor="middle">——</text>
+    <text class="est" x="428" y="226" text-anchor="middle">估算 Estimated</text>
+  </g>
+  <g class="fade f3">
+    <text class="token" x="688" y="140" text-anchor="middle">世界</text>
+    <text class="time" x="688" y="226" text-anchor="middle">1.20s – 1.80s · ASR</text>
+  </g>
+
+  <text class="note fade f3" x="48" y="286">两边都有锚点时，未命中的文稿按字数插值，并标记为估算；缺少锚点则保留原文，不编造时间。</text>
+  <text class="note fade f3" x="48" y="314">Unmatched text between two anchors is interpolated by character weight and marked estimated.</text>
+</svg>

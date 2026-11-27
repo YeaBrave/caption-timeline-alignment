@@ -1,0 +1,22 @@
+[project]
+name = "caption-timeline-alignment"
+version = "0.1.0"
+description = "Manuscript-first subtitle alignment: the script is the text, ASR only donates timing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = []
+dependencies = []
+
+[project.optional-dependencies]
+zh = ["jieba>=0.42"]
+
+[project.scripts]
+caption-align = "caption_timeline_align.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["caption_timeline_align*"]
