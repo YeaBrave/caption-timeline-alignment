@@ -1,54 +1,40 @@
 # 字幕アライメント研究
 
-Subtitle Alignment Research
+**Subtitle Alignment Research / 字幕对齐算法研究**
 
 [中文](README.md) · [English](README.en.md) · [日本語](README.ja.md)
 
-原稿が字幕テキストの唯一の出典であり、音声認識はタイミングだけを提供します。これは独立した「原稿優先」の字幕アライメント研究で、実行可能な参考実装を含み、特定の商用編集ソフトとは無関係です。
+原稿優先の字幕アライメント：原稿がテキストを担い、音声認識は時刻だけを提供します。これは独立した研究と、実行可能な参照実装です。いずれの商用編集ソフトとも無関係です。
 
-アルゴリズムの詳細は [docs/algorithm.ja.md](docs/algorithm.ja.md) を参照してください。
+オープンソースの依存関係、作者、および公開稿の整理を手伝った Claude（Anthropic）への謝辞は [docs/CREDITS.md](docs/CREDITS.md) にあります。再利用・再配布の際は、この謝辞を残してください。
 
 ## デモ
 
-このリポジトリに製品スクリーンショットはありません。以下の 3 つの SVG アニメーションはブラウザで再生できます。[docs/assets/preview.html](docs/assets/preview.html) を開くとまとめて確認できます。
+本リポジトリに製品スクリーンショットはありません。次の SVG アニメーションは、ブラウザでそのまま再生できます。
 
-- [原稿優先](docs/assets/manuscript-first.svg)：誤認識はスキップされ、字幕は原稿の文言を使います
-- [時間の補完](docs/assets/time-fill.svg)：一致した区間は認識時間を使い、未一致の原稿は文字数で補間します
-- [キュー分割](docs/assets/cue-split.svg)：2 つのアンカーの間の間（ま）を優先して分割します
+- [原稿優先](docs/assets/manuscript-first.svg)
+- [時刻の埋め戻し](docs/assets/time-fill.svg)
+- [字幕の分割](docs/assets/cue-split.svg)
 
-## 考え方
-
-1. 動的計画法で認識語を原稿に埋め戻し、一致を最大化しつつ、マッチできない区間はスキップできます。
-2. 一致箇所は認識時間を使います。両端にアンカーがある隙間は文字数で補間し、推定として標記します。
-3. 句読点、文字数、長さに応じて字幕キューへ分割します。
+[docs/assets/preview.html](docs/assets/preview.html) を開くと、まとめて確認できます。算法の説明は [docs/algorithm.ja.md](docs/algorithm.ja.md) にあります。
 
 ## 使い方
 
 ```bash
-python3 -m caption_timeline_align --script examples/manuscript.txt --asr examples/words.json --duration 3 --out out.srt
+python3 -m caption_timeline_align --script examples/manuscript.txt --asr examples/words.json --duration 3 --out /tmp/out.srt
 python3 -m unittest
 ```
 
-`words.json` はオブジェクトの配列で、各要素は `text`（または `word`）と、秒単位の `start`、`end` を持ちます。
+`words.json` はオブジェクトのリストです。各要素は `text`（または `word`）と、秒単位の `start`・`end` を持ちます。
 
-任意の中国語分かち書き：
+より良い中国語の分かち書きが必要な場合：
 
 ```bash
 pip install 'caption-timeline-alignment[zh]'
 ```
 
-jieba がない場合、中国語は文字単位で分割され、アライメントは実行できます。
-
-## 謝辞
-
-再利用や再配布の際は、本謝辞を残してください。詳細は [docs/CREDITS.md](docs/CREDITS.md) にあります。
-
-| 名称 | ライセンス | 作者 / 出典 | 説明 |
-| --- | --- | --- | --- |
-| [Python](https://www.python.org/) | PSF License | Python Software Foundation | 実行環境 |
-| [jieba](https://github.com/fxsjy/jieba) | MIT | Sun Junyi（`fxsjy`） | 任意の中国語分かち書き |
-| [Claude](https://www.anthropic.com) | — | Anthropic | 公開文書と参考実装の整理を補助したツールであり、同梱の依存関係ではありません |
+jieba がない場合、中国語は文字単位で分割されます。中核のアライメント処理はそのまま動作します。
 
 ## ライセンス
 
-このリポジトリは MIT ライセンスで公開しています。
+MIT。第三者のライセンス、作者、ツールへの謝辞は [docs/CREDITS.md](docs/CREDITS.md) を参照してください。
