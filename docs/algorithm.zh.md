@@ -2,7 +2,7 @@
 
 Subtitle Alignment Research
 
-[中文](algorithm.zh.md) · [English](algorithm.en.md) · [日本語](algorithm.ja.md)
+[中文](algorithm.zh.md) · [English](algorithm.en.md)
 
 这是一份独立的文稿优先（manuscript-first）字幕对齐说明，并附可独立运行的实现。它处理的问题是：已有完整文稿，以及一串带时间戳的识别词，如何把文稿对齐到时间轴上，再切成字幕条。
 
@@ -19,10 +19,16 @@ Subtitle Alignment Research
 
 ## 演示动画
 
-本仓库没有现成的产品截图，下面三张是可在浏览器里播放的 SVG 动画，对应上述步骤：
+下面三张动画可直接在本页播放，对应上述步骤。也可打开 [assets/preview.html](assets/preview.html) 一并查看。
 
-- [文稿优先](assets/manuscript-first.svg)
-- [时间回填](assets/time-fill.svg)
-- [切条](assets/cue-split.svg)
+<p align="center"><strong>文稿优先</strong></p>
 
-也可打开 [assets/preview.html](assets/preview.html) 一并查看。
+<img src="assets/manuscript-first.svg" width="100%" alt="文稿优先">
+
+<p align="center"><strong>时间回填</strong></p>
+
+<img src="assets/time-fill.svg" width="100%" alt="时间回填">
+
+<p align="center"><strong>切条</strong></p>
+
+<img src="assets/cue-split.svg" width="100%" alt="切条">

@@ -2,7 +2,7 @@
 
 字幕对齐算法研究
 
-[中文](algorithm.zh.md) · [English](algorithm.en.md) · [日本語](algorithm.ja.md)
+[中文](algorithm.zh.md) · [English](algorithm.en.md)
 
 This is an independent, manuscript-first description of caption alignment, with a runnable reference implementation. The problem is: given a complete manuscript and a sequence of recognized words with timestamps, align the manuscript to a timeline and split it into cues.
 
@@ -19,10 +19,16 @@ Optional Chinese segmentation credits are listed in [CREDITS.md](CREDITS.md).
 
 ## Demo animations
 
-This repository has no product screenshots. These SVG animations can be opened in a browser and correspond to the steps above:
+These three animations play on this page and correspond to the steps above. You can also open [assets/preview.html](assets/preview.html) to view them together.
 
-- [Manuscript first](assets/manuscript-first.svg)
-- [Time fill](assets/time-fill.svg)
-- [Cue split](assets/cue-split.svg)
+<p align="center"><strong>Manuscript first</strong></p>
 
-Or open [assets/preview.html](assets/preview.html) to play them together.
+<img src="assets/manuscript-first.svg" width="100%" alt="Manuscript first">
+
+<p align="center"><strong>Time fill</strong></p>
+
+<img src="assets/time-fill.svg" width="100%" alt="Time fill">
+
+<p align="center"><strong>Cue split</strong></p>
+
+<img src="assets/cue-split.svg" width="100%" alt="Cue split">
